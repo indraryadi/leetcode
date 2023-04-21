@@ -7,13 +7,14 @@ t1 = "aaaabb"
 s_dict = {}
 t_dict = {}
 
+
 def check_anagram(s, t):
     if len(t) == len(s):
         for i in range(len(s)):
-            #s_dict[s[i]] = 1 + s_dict.get(s[i],0)
-            #t_dict[t[i]] = 1 + t_dict.get(t[i],0)
+            # s_dict[s[i]] = 1 + s_dict.get(s[i],0)
+            # t_dict[t[i]] = 1 + t_dict.get(t[i],0)
 
-            if s[i] not in s_dict: 
+            if s[i] not in s_dict:
                 s_dict[s[i]] = 1
             else:
                 s_dict[s[i]] += 1
@@ -24,8 +25,8 @@ def check_anagram(s, t):
                 t_dict[t[i]] += 1
     else:
         print('len not same')
-        return False 
-    
+        return False
+
     for i in s_dict:
         if i not in t_dict:
             print('t not in s')
@@ -35,19 +36,22 @@ def check_anagram(s, t):
             return False
     return True
 
+
 def neetcode(s, t):
-    if len(s)!=len(t):
+    if len(s) != len(t):
         return False
-    hashs={}
-    hasht={}
+    hashs = {}
+    hasht = {}
     for i in range(len(s)):
-        hashs[s[i]]=1+hashs.get(s[i],0)
-        hasht[t[i]]=1+hasht.get(t[i],0)
+        hashs[s[i]] = 1+hashs.get(s[i], 0)
+        hasht[t[i]] = 1+hasht.get(t[i], 0)
 
     for i in hashs:
-        if hashs[i] != hasht.get(i,0):
+        if hashs[i] != hasht.get(i, 0):
             return False
     return True
+
+
 print(check_anagram(s1, t1))
 print(neetcode(s1, t1))
 print(f's_dict : {s_dict}')
